@@ -1,0 +1,35 @@
+
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title text-center">訪客認證<button class="btn btn-primary btn-sm pull-right">已經註冊?</button></h3>				
+			</div>
+			<div class="modal-body" id="content">
+				<form role="form">
+					<p>請填寫以下資料</p>
+					<div class="form-group">
+						<p>請輸入信箱帳號<span class="text-danger" style="font-size: 18px;">*</span></p>
+						<input type="email" id="email" name="email" class="form-control" placeholder="請輸入信箱帳號" required="" autofocus="">
+					</div>
+					<div class="form-group">
+						<p>請輸入電話號碼<span class="text-danger" style="font-size: 18px;">*</span></p>
+						<input type="text" id="phone" name="phone" class="form-control" placeholder="請輸入電話號碼" required="">
+					</div>
+					<div class="form-group" id="captcha">
+						<p>驗證碼<span class="text-danger" style="font-size: 18px;">*</span></p>
+						<input class="form-control captcha" type="text" disabled="">
+						<div class="input-group">
+							<input class="form-control captchaInput" type="text" placeholder="請輸入驗證碼" required="">	
+							<span class="input-group-btn">
+								<button class="btn refresh"><i class="fa fa-refresh"></i></button>
+							</span>
+						</div>
+						<p class="validation">驗證號碼錯誤</p>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" id="submit" class="btn btn-primary btn-block">認證</button>
+			</div>
+		</div>
+	</div>

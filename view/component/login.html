@@ -1,0 +1,86 @@
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" align="center">
+				<img class="img-circle img-logo" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times</span></button>
+			</div>
+            
+            <div id="frame">
+            <form id="signIn-form">
+		        <div class="modal-body">
+                    <h2 class="text-center">登入</h2>
+				   	<div class="lost-msg form-group">
+                        <label id="login-msg"><i class="fa fa-chevron-right"></i> 請輸入電子郵件/密碼</label>
+                    </div>
+                    <div class="form-group">
+                        <label>帳號</label>
+                        <input class="form-control" type="email" name="email" id="account" placeholder="請輸入信箱帳號" required autofocus>
+                        <span class="validation">信箱有誤</span> 
+                    </div>
+				  	<div class="form-group">
+                        <label>密碼</label>
+                        <input class="form-control" type="password" name="password" id="password" placeholder="請輸入密碼" required>
+                        <span class="validation">密碼有誤</span>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg btn-block submit"><img src="/JiCoffee/images/login-loading.gif" style="display: none;">登入</button>
+				    <div class="modal-footer">
+				    	<button type="button" class="btn btn-link switch" data-purpose="lost">忘記密碼?</button>
+                        <button type="button" class="btn btn-link switch" data-purpose="register">註冊</button>
+				    </div>
+				</div>
+            </form>
+            
+            <form id="lost-form" style="display: none;">
+    	   		<div class="modal-body">
+		    		<div class="lost-msg form-group">
+                        <label id="lost-msg"><i class="fa fa-chevron-right"></i> 請輸入電子郵件</label>
+                    </div>
+		    		<input class="form-control" type="email" placeholder="信箱帳號" required autofocus>
+            	</div>
+		    	<div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block submit"><img src="/JiCoffee/images/login-loading.gif" style="display: none;">發送</button>
+                	<button type="button" class="btn btn-link switch" data-purpose="signIn">登入</button>
+                	<button type="button" class="btn btn-link switch" data-purpose="register">註冊</button>
+                </div>
+            </form>
+                   
+            <form id="register-form" style="display:none;">
+            	<div class="modal-body">
+		    		<div class="lost-msg form-group">
+                        <label id="register-msg"><i class="fa fa-chevron-right"></i> 請填寫以下訊息</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline"><input type="radio" name="sex" value="M" checked>男性</label>
+                        <label class="radio-inline"><input type="radio" name="sex" value="F">女性</label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="username" placeholder="姓名" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" placeholder="電子郵件信箱" required>
+                        <span class="validation">此信箱已有人註冊</span>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="phone" placeholder="電話號碼" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" id="register-password" placeholder="密碼" required>    
+                        <span class="validation">密碼需大於6字元</span>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" id="register-password-again" placeholder="確認密碼" required>    
+                        <span class="validation">密碼與確認密碼不相符</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block submit"><img src="/JiCoffee/images/login-loading.gif" style="display: none;">註冊</button>
+                    <button type="button" class="btn btn-link switch" data-purpose="signIn">登入</button>
+                    <button type="button" class="btn btn-link switch" data-purpose="lost">忘記密碼?</button>
+            	</div>
+		    	<div class="modal-footer"></div>
+                <br>
+            </form>        
+          	</div>
+		</div>
+	</div>
+</div>

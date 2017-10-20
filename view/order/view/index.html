@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>JICoffee</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<!--CSS Loading -->
+	<!-- <link rel="manifest" href="../../manifest.json"> -->
+	<link rel="stylesheet" href="/JiCoffee/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/JiCoffee/css/prettyPhoto.css">
+    <link rel="stylesheet" href="/JiCoffee/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/JiCoffee/css/box.css">
+    <link rel="stylesheet" href="/JiCoffee/css/style.css">
+    <link rel="stylesheet" href="/JiCoffee/css/sweetalert.css">
+    
+</head>
+<body>
+
+<header>
+    <nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-brand">
+					<a href="/JiCoffee/" class="brand">JING<p></p>Coffee</a>
+				</div>
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="navbar">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="navbar-collapse collapse" id="menu">
+					<div data-include="menu" class="nav-menu"></div>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="cart"></li>
+						<li id="user">
+							<a href="#" data-toggle="modal" data-target="#login-modal">
+								<i class="fa fa-user fa-lg"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>		
+	</nav>
+</header>
+
+<section class="slider">
+	<div class="wrapper">
+		<div class="container">			
+			<div class="row">
+				<!-- <div class="box box-solid">
+					<div class="box-header">
+						<h3>訂單總覽</h3>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		<div class="container">
+			<div class="row tablle-responsive">
+				<h2 class="text-center">查看訂單</h2>
+				<table class="table table-bordered table-striped table-hover" id="order" style="display: none;">
+					<thead class="small-font text-center">
+						<tr class="active">
+							<th class="text-center">訂單編號</th>
+							<th class="text-center">購買時間</th>
+							<th class="text-center">商品名稱x商品數量</th>
+							<th class="text-center">商品單價</th>
+							<th class="text-center">結帳總金額</th>
+							<th class="text-center">訂單狀態</th>
+							<th class="text-center">配送方式</th>
+							<th class="text-center">訂單管理</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+					<div class="text-center">
+						<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+					</div>
+                    &copy; Coffee Shop
+                    <div class="credits"></div>
+                </div>
+				
+                <div class="top-bar">			
+					<div class="col-md-12">
+					   <div class="social">
+							<ul class="social-share">
+								<li><a href="#">聯絡我們</a></li>
+								<li><a href="#">網站使用條例</a></li>
+								<li><a href="#">隱私權保護申明</a></li>
+							</ul>
+					   </div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </footer>
+
+<section id="modal" data-include="login"></section>
+	
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/JiCoffee/js/jquery.min.js"><\/script>')</script>
+<script src="/JiCoffee/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/JiCoffee/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/JiCoffee/js/jquery.prettyPhoto.js"></script>
+<script src="/JiCoffee/js/sweetalert.min.js"></script>
+<script src="/JiCoffee/js/amplify.min.js"></script>
+<script src="/JiCoffee/js/amplify.request.deferred.js"></script>
+<script src="/JiCoffee/js/loading.js"></script>
+<script src="/JiCoffee/js/cart.js"></script>
+<script src="/JiCoffee/js/app.js"></script>
+<script>
+
+(function() {
+	
+	var app = new App;
+
+	App.checkAuthority = function(result) {
+		if (result.user !== 'Member') {
+			return App.error();
+		}
+	};
+
+	App.orderLobby = function(result) {
+		if (result !== 'error') {
+			return $('#order').trigger('view', [result.order]);	
+		}
+		
+	};
+
+	$(function() {
+		$('#order').on('view', function(event, order) {
+			event.preventDefault();
+
+			if (!order) {
+				return $(this).prev().text('查無資料');
+			} 
+			
+			$(this).show().find('tbody').html(order);
+		}).on('click.setting', 'a.setting', function(event) {
+			event.preventDefault();
+			location.href = $(this).data('href') + 'transactionid=' + $(this).data('transactionid');
+		});
+	});
+
+	amplify.subscribe('app', App.cart);
+	amplify.subscribe('app', App.checkAuthority);
+	amplify.subscribe('order', App.orderLobby);
+
+	$.when(
+		amplify.request('app', {operation: 'initialize'}),
+		amplify.request('app', {operation: 'viewOrder'})
+	).then(function(application, order) {
+
+		if (application[1] === 'success') {
+			amplify.publish('app', application[0]);
+		}
+
+		if (order[1] === 'success') {
+			// console.log(order[0]);
+			amplify.publish('order', order[0]);
+		}
+
+	});
+
+	// var ajax = new Ajax;
+	// var service = new Service;
+
+	// $(function() {
+	// 	var component = '/JiCoffee/view/component/'
+
+	// App.loadCart = function() {
+	// 	if (app.sessionProductLoad()) {
+	// 		app.cartLoad();
+	// 	}
+	// };
+
+	// App.viewOrder = function() {
+	// 	this.view = function(result) {
+	// 		if (!result.order) {
+	// 			return $('#order').parent().html('<h2 class="text-center">查無資料</h2>');
+	// 		}
+	// 		$('#order').show().trigger('view', [result]);
+	// 	};
+	// 	ajax.request({data: {operation: 'viewOrder'}}, this.view);
+	// };
+
+	// service.listen('app', App.loadCart);
+	// service.listen('app', App.viewOrder);
+
+	// var app = new App(ajax, service);
+	// app.proxyInit();
+		// }
+	
+}());
+	
+</script>
+</body>
+
+</html>

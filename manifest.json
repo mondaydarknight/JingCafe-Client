@@ -1,0 +1,37 @@
+{
+	"lang": "en",
+	"name": "APP HTML Manifest",
+	"short_name": "Document",
+	"start_url": "index.html",
+	"display": "standalone",
+	"orientation": "landscape",
+	"meta": [
+		{
+			"name": "viewport",
+			"content": "width=device-width,initial-scale=1"
+		},
+		{
+			"name": "author",
+			"content": ""
+		},
+		{
+			"name": "keywords",
+			"content": ""
+		},
+		{
+			"name": "description",
+			"content": ""
+		},
+		{
+			"icons": [
+				{
+					"rel": "icon",
+					"href": "/JiCoffee/images/ji-logo.png",
+					"sizes": "34x34",
+					"type": "image/png"		
+				}
+			]
+		}
+	]
+	
+}

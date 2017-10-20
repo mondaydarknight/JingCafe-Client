@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>JICoffee</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<!--CSS Loading -->
+	<!-- <link rel="manifest" href="../../manifest.json"> -->
+	<link rel="stylesheet" href="/JiCoffee/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/JiCoffee/css/prettyPhoto.css">
+    <link rel="stylesheet" href="/JiCoffee/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/JiCoffee/css/box.css">
+    <link rel="stylesheet" href="/JiCoffee/css/style.css">
+    <link rel="stylesheet" href="/JiCoffee/css/sweetalert.css">
+    
+</head>
+<body>
+
+<header>
+    <nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-brand">
+					<a href="/JiCoffee/" class="brand">JING<p></p>Coffee</a>
+				</div>
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="navbar">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="navbar-collapse collapse" id="menu">
+					<div data-include="menu"></div>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="user"></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>		
+	</nav>
+</header>
+
+<section class="slider">
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-md-offset-2">
+					<div class="card text-center">
+					  <div class="card-header"><label>取消訂單交易</label></div>
+					  	<div class="card-block">
+					  	<form role="form">
+					  		<!-- need claim detail -->
+					  		<h4 class="card-title">請完成以下程序</h4>
+					  		<h5 class="validation">請選擇以下項目</h5>
+					  		<div class="form-group form-inline">
+					  			<span class="card-text">取消交易原因</span>
+								<select class="form-control cancelOption">
+								    <option>-請選擇-</option>
+								    <option>訂購商品錯誤</option>
+								    <option>無法聯繫賣家</option>
+								    <option>其他</option>
+								</select>							
+					  		</div>
+ 					  		
+					  		<a href="/JiCoffee/" class="btn btn-default" id="cancelSubmit"><img src="/JiCoffee/images/loader.gif" style="display: none;">確定送出</a>
+					  		<a href="/JiCoffee/" class="btn btn-default">取消</a>
+					  	</form>
+					  	</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+					<div class="text-center">
+						<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+					</div>
+                    &copy; Coffee Shop
+                    <div class="credits">
+                        
+                    </div>
+                </div>
+				
+                <div class="top-bar">			
+					<div class="col-lg-12">
+					   <div class="social">
+							<ul class="social-share">
+								<li><a href="#">聯絡我們</a></li>
+								<li><a href="#">網站使用條例</a></li>
+								<li><a href="#">隱私權保護申明</a></li>
+								<!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
+							</ul>
+					   </div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </footer>
+
+	
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/JiCoffee/js/jquery.min.js"><\/script>')</script>
+<script src="/JiCoffee/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/JiCoffee/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/JiCoffee/js/jquery.prettyPhoto.js"></script>
+<script src="/JiCoffee/js/sweetalert.min.js"></script>
+<script src="/JiCoffee/js/amplify.min.js"></script>
+<script src="/JiCoffee/js/amplify.request.deferred.js"></script>
+<script src="/JiCoffee/js/loading.js"></script>
+<script src="/JiCoffee/js/app.js"></script>
+
+
+<script>
+
+(function() {
+	
+	$(function() {
+		
+		$('#cancelSubmit').on('click.cancelOrder', function(event) {
+			event.preventDefault();
+
+			var $cancelOption = $(this).prev().find('select.cancelOption');
+
+			if ($cancelOption.get(0).selectedIndex < 1) {
+				$cancelOption.parent().addClass('has-error').prev().css('text-align', 'center').show('fast');
+				setTimeout(function() {
+					$cancelOption.parent().removeClass('has-error');
+				}, 1000);
+
+				return;
+			}
+
+			amplify.request('app', {operation: 'cancelOrder', transactionId: resource.transactionid}).done(function(result, status) {
+				App.cancelRespond(result);
+			});
+
+		});
+	});
+
+	App.checkAuthority = function(result) {
+		if (result.user !== 'Member') {
+			return App.error();
+		}
+
+		amplify.request('app', $.extend({operation: 'checkTransaction'}, resource)).done(function(result, status) {
+			if (status !== 'success' || !result) {
+				App.error();
+			}
+		});
+
+	};
+
+	App.cancelRespond = function(result) {
+				
+		if (result.error) {
+			swal({
+				title: result.error,
+				text: '系統將返回訂單頁面',
+				type: "warning",
+				closeOnConfirm: false
+			});
+
+			App.goOrderLobby();
+			return;
+		}
+
+		swal({
+			title: result,
+			type: 'success'
+		});
+
+		App.goOrderLobby();
+	};
+
+	var app = new App;
+	var resource = Url.getUrlParameter;
+	
+	if (resource.transactionid === undefined) {
+		return App.error();
+	}
+
+	amplify.subscribe('app', App.checkAuthority);
+
+	amplify.request('app', {operation: 'initialize'}).done(function(application, status) {
+		if (status === 'success') {
+			amplify.publish('app', application);
+		}
+	});
+
+
+}());
+	
+</script>
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>JICoffee</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
+	
+	<!--CSS Loading -->
+	<link rel="stylesheet" href="/JiCoffee/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/JiCoffee/css/prettyPhoto.css">
+    <link rel="stylesheet" href="/JiCoffee/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/JiCoffee/css/sweetalert.css">
+    <link rel="stylesheet" href="/JiCoffee/css/style.css">
+    
+</head>
+<body>
+
+<header>
+    <nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-brand">
+					<a href="/JiCoffee/" class="brand">JING<p></p>Coffee</a>
+				</div>
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="navbar">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="navbar-collapse collapse" id="menu">
+					<div data-include="menu"></div>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="cart"></li>
+						<!-- <li class="dropdown messages-menu" id="cart">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-shopping-cart fa-lg"></i>
+								<span class="label label-success amount"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="header">您選購<span class="amount"></span>項目</li>
+								<li>
+									<ul class="menu"></ul>
+									<li class="footer"><a href="/JiCoffee/view/pay/">結帳</a></li>
+								</li>
+							</ul>
+						</li> -->
+						<li id="user">
+							<a href="#" class="external" data-toggle="modal" data-target="#login-modal"><i class="fa fa-user fa-lg"></i></a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.Navbar-collapse --> 
+			</div>
+		</div>		
+	</nav>
+</header>
+
+<section class="slider">
+	<div class="wrapper">
+	<div class="container">
+		<div class="col-md-3 col-sm-3">
+			<div data-include="productMenu" id="accordionCategory"></div>
+		</div>
+	
+		<div class="col-md-9 col-sm-9 padding-right" id="productView">
+			<div class="features_items text-center">
+				<h3>糕點</h3>
+				<hr>
+			</div>			
+		</div>
+	</div>
+	</div>
+</section>
+
+	<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+					<div class="text-center">
+						<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+					</div>
+                    &copy; Coffee Shop
+                    <div class="credits">
+                        <!-- 
+                            All the links in the footer should remain intact. 
+                            You can delete the links only if you purchased the pro version.
+                            Licensing information: https://bootstrapmade.com/license/
+                            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=OnePage
+                        -->
+                    </div>
+                </div>
+				
+                <div class="top-bar">			
+					<div class="col-lg-12">
+					   <div class="social">
+							<ul class="social-share">
+								<li><a href="#">聯絡我們</a></li>
+								<li><a href="#">網站使用條例</a></li>
+								<li><a href="#">隱私權保護申明</a></li>
+								<!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
+							</ul>
+					   </div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </footer>
+	
+	<section id="login"></section>
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/JiCoffee/js/jquery.min.js"><\/script>')</script>
+<script src="/JiCoffee/js/manifest.js"></script>
+<script src="/JiCoffee/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/JiCoffee/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/JiCoffee/js/jquery.prettyPhoto.js"></script>
+<script src="/JiCoffee/js/amplify.min.js"></script>
+<script src="/JiCoffee/js/amplify.request.deferred.js"></script>
+<script src="/JiCoffee/js/sweetalert.min.js"></script>
+<script src="/JiCoffee/js/login.js"></script>
+<script src="/JiCoffee/js/cart.js"></script>
+<script src="/JiCoffee/js/app.js"></script>
+<script>
+
+(function() {
+	var productCategory = {bean: '咖啡豆', drip: '濾掛包', cake: '糕點'};
+	var resource = Url.getUrlParameter;
+	var Product = function($product) {
+		this.product = $product;
+	};
+
+	Product.prototype.productGenerate = function(product) {
+		this.product.append(product);
+	};
+
+	Product.prototype.productNone = function() {
+		this.product.find('h3').text('查無資料');
+	};
+
+	Product.prototype.menuItemActive = function() {
+		$('li.nav-item', 'ul.navbar-nav').eq(1).addClass('active');
+		this.product.find('h3').text(productCategory[resource.category]);
+	};
+	
+	var viewProduct = $.extend({operation: 'viewProduct'}, resource);
+	var app = new App;
+	var product = new Product($('#productView'));
+
+	app.httpGet();
+	
+	if (resource.category === undefined) {
+		return product.productNone();
+	}
+
+	amplify.subscribe('product', function(result) {
+		product.productGenerate(result.products);
+	});
+
+	amplify.subscribe('app', App.cart);
+	amplify.subscribe('product', $.proxy(product.menuItemActive, product));
+
+	$.when(
+		amplify.request('app', {operation: 'initialize'}),
+		amplify.request('get', viewProduct)
+	).then(function(application, product) {
+		if (application[1] === 'success') {
+			amplify.publish('app', application[0]);
+		}
+
+		if (product[1] === 'success') {
+			amplify.publish('product', product[0]);
+		} 
+	});
+	
+	$(function() {
+		$('#accordionCategory').on('click', 'a', function() {
+			window.location.replace($(this)[0].href);
+		});
+	});
+
+	// 	var request = $.extend({operation: 'viewProduct'}, resource);
+	// 	ajax.request({data: request}, display);
+	// };
+
+	// if (resource.category === undefined) {
+	// 	return $('#productView').find('h3').text('查無資料');
+	// }
+	
+}());
+	
+</script>
+</body>
+
+</html>

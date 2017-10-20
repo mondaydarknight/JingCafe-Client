@@ -1,0 +1,16 @@
+Options -Indexes
+#ErrorDocument 403 /JiCoffee/view/404.html
+ErrorDocument 404 /JiCoffee/view/404.html
+# Follow symbolic links
+Options +FollowSymLinks
+
+# Default handler
+DirectoryIndex index.html
+
+<Files filename.ext> 
+	order allow,deny 
+	deny from all 
+</Files>
+IndexIgnore *
+#deny from all
+#AddType text/cache-manifest .appcache

@@ -1,0 +1,630 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>JICoffee</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<!--CSS Loading -->
+	<!-- <link rel="manifest" href="../../manifest.json"> -->
+	<link rel="stylesheet" href="/JiCoffee/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/JiCoffee/css/prettyPhoto.css">
+    <link rel="stylesheet" href="/JiCoffee/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/JiCoffee/css/box.css">
+    <link rel="stylesheet" href="/JiCoffee/css/style.css">
+    <link rel="stylesheet" href="/JiCoffee/css/sweetalert.css">
+    
+</head>
+<body>
+
+<header>
+    <nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-brand">
+					<a href="/JiCoffee/" class="brand">JING<p></p>Coffee</a>
+				</div>
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="navbar">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="navbar-collapse collapse" id="menu">
+					<div data-include="menu"></div>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="user">
+							<a href="#" class="external" data-toggle="modal" data-target="#login-modal"><i class="fa fa-user fa-lg"></i></a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>		
+	</nav>
+</header>
+
+<section class="slider">
+	<div class="wrapper">
+		<div class="container">			
+			<h2>快速結帳</h2>
+			<h4>填寫以下欄位以便處理您的訂單。</h4>			
+			<hr>
+			<div class="box box-solid">
+				<div class="col-sm-4 col-xs-12">
+					<div class="box-header">
+						<div class="row">
+							<h3 class="box-title"><i class="fa fa-user fa-1x"></i>您的資料</h3>
+							<div class="box-tools pull-right"></div>
+						</div>
+						<small class="text-danger">需以會員身分進行</small>
+						<hr>
+					</div>
+
+					<div class="box-body">	
+						<div class="row">
+							<form id="personelInfo" role="form" class="row" data-verify="false">
+								<div class="form-group col-sm-12">
+									<p>姓名:<span class="text-danger" style="font-size: 18px;">*</span></p>
+									<input type="text" id="username" name="username" class="form-control" placeholder="請輸入姓名" required autofocus>
+								</div>	
+								<div class="form-group col-sm-12">
+									<p>電子郵件:<span class="text-danger" style="font-size: 18px;">*</span></p>
+									<input type="email" id="email" name="email" class="form-control" placeholder="請輸入信箱" required>
+								</div>
+								<div class="form-group col-sm-12">
+									<p>手機電話:<span class="text-danger" style="font-size: 18px;">*</span></p>
+									<input type="text" id="phone" name="phone" class="form-control" placeholder="請輸入手機號碼" required>
+								</div>
+								<div class="form-group col-sm-12" id="captcha">
+									<p>驗證碼<span class="text-danger" style="font-size: 18px;">*</span></p></p>
+									<input class="form-control captcha" type="text" disabled="">
+									<div class="input-group">
+										<input class="form-control captchaInput" type="text" placeholder="請輸入驗證碼" required="">	
+										<span class="input-group-btn">
+											<button class="btn refresh"><i class="fa fa-refresh"></i></button>
+										</span>
+									</div>
+									<p class="validation">驗證號碼錯誤</p>
+								</div>
+								<div class="form-group col-sm-12">
+									<button id="save" class="btn btn-primary btn-block storeMember" rel="tooltip" data-placement="bottom" title="請先儲存資料"><i class="fa fa-file"></i>儲存資料</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+		
+				<div class="col-sm-4 col-xs-12">
+					<div class="box-header">
+						<div class="row">
+							<h3 class="box-title"><i class="fa fa-truck fa-1x"></i>配送方式</h3>
+						</div>
+						<hr>
+					</div>
+					<div class="box-body" id="deliverInfo">
+						<!-- <div class="alert alert-info radio deliver">
+							<label>
+								<input type="radio" name="deliver-type" value="A" checked>
+								<span class="frb-title">門市</span>
+								<small class="frb-description">三天工作日</small>
+								<span class="pull-right">免運費</span>
+							</label>
+						</div>
+						<div class="alert alert-default radio deliver">
+							<label>
+								<input type="radio" name="deliver-type" value="B">
+								<span class="frb-title">7-11</span>
+								<small class="frb-description">需運費</small>
+								<span class="pull-right">NT$60</span>
+							</label>
+						</div>
+						<div class="alert alert-default radio deliver">
+							<label>
+								<input type="radio" name="deliver-type" value="C">
+								<span class="frb-title">郵局</span>
+								<small class="frb-description">需運費</small>
+								<span class="pull-right">NT$60</span>
+							</label>
+						</div> -->
+						
+						<!-- <ul class="nav nav-tabs" id="deliverItem">
+							<li class="active"><a href="#jiCafe" data-toggle="tab">門市</a></li>
+							<li><a href="#store" data-toggle="tab">7-11</a></li>
+							<li><a href="#post" data-toggle="tab">郵局</a></li>
+						</ul>		
+						<div class="tab-content clearfix">
+							<div class="tab-pane active" id="jiCafe">
+							<p></p>
+							<ul>
+								<li>本店領取商品(免運費)</li>
+								<li>門市地點為:<span class="address"></span></li>
+								<li>領貨時段依照營業時間</li>
+							</ul>
+							</div>
+							<div class="tab-pane" id="store">
+								<div class="form-group">
+									<label>請選取門市</label>
+									<select class="form-control">
+										<option></option>
+									</select>
+								</div>								
+							</div>
+							<div class="tab-pane" id="post"></div>
+						</div> -->
+
+					</div>
+					
+				</div>			
+			
+				<div class="col-sm-4 col-xs-12">
+					<div class="box-header">
+						<div class="row">
+							<h3 class="box-title"><i class="fa fa-credit-card fa-1x"></i>付款方式</h3>
+						</div>
+						<hr>
+						<ul class="nav nav-tabs" id="payItem">
+							<li class="active"><a href="#atm" data-toggle="tab">ATM付款</a></li>
+						</ul>
+						<div class="tab-content clearfix">
+							<div class="tab-pane active" id="atm">
+								<div class="col-sm-6 form-group">
+									<p>帳戶後五碼:</p>
+									<input type="password" name="account" class="form-control" placeholder="請輸入帳戶後五碼">
+									<p class="validation">帳戶需要五碼</p>
+								</div>
+								<div class="col-sm-6 form-group">
+									<p>帳戶確認</p>
+									<input type="password" name="account" class="form-control" placeholder="帳戶確認">
+									<p class="validation">帳戶與確認帳戶不相等</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-8 col-xs-12">
+					<div class="box-body">
+						<!-- <div class="alert alert-info">您的購買總金額還未達免運費標準: NT$ 450</div> -->
+						<table class="table" id="productList">
+							<thead>
+								<tr>
+									<th></th>
+									<th>商品</th>
+									<th>單價</th>
+									<th>數量</th>
+									<th>總計</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+						
+						<div class="table-container-footer">
+							<table class="table">
+								<tfoot>
+									<tr class="pull-right">
+										<th colspan="4">
+											<p>商品小計  (含稅) : NT$ <span class="originPrice pull-right">0</span></p>
+											<p>運費總計  (含稅) : NT$ <span class="deliverPrice pull-right">0</span></p>
+											<p>您的購買總金額 : NT$ <span class="totalPrice pull-right">0</span></p>
+										</th>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+
+						<div class="form-group">
+							<p>備註:</p>
+							<textarea class="form-control"></textarea>
+						</div>
+						
+						<div class="pull-right">
+							<button class="btn btn-primary btn-lg" id="submit" rel="tooltip" data-placement="bottom" title="清單填寫有誤,請重新確認">結帳</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-12 col-xs-12">
+					<div class="box-footer"></div>
+				</div>
+			</div>	
+			
+		</div>
+	</div>
+</section>
+
+	<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+					<div class="text-center">
+						<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+					</div>
+                    &copy; Coffee Shop
+                    <div class="credits">
+                        
+                    </div>
+                </div>
+				
+                <div class="top-bar">			
+					<div class="col-lg-12">
+					   <div class="social">
+							<ul class="social-share">
+								<li><a href="#">聯絡我們</a></li>
+								<li><a href="#">網站使用條例</a></li>
+								<li><a href="#">隱私權保護申明</a></li>
+								<!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
+							</ul>
+					   </div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </footer>
+
+<div data-include="pay-modal"></div>
+	
+<section id="login"></section>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/JiCoffee/js/jquery.min.js"><\/script>')</script>
+<!-- <script src="../../js/popper.min.js"></script> -->
+<script src="/JiCoffee/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/JiCoffee/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/JiCoffee/js/jquery.prettyPhoto.js"></script>
+<script src="/JiCoffee/js/captcha.js"></script>
+<script src="/JiCoffee/js/sweetalert.min.js"></script>
+<script src="/JiCoffee/js/amplify.min.js"></script>
+<script src="/JiCoffee/js/amplify.request.deferred.js"></script>
+<script src="/JiCoffee/js/loading.js"></script>
+<script src="/JiCoffee/js/login.js"></script>
+<script src="/JiCoffee/js/app.js"></script>
+<script src="/JiCoffee/js/transaction.js"></script>
+
+<script>
+
+(function() {
+
+	// var $productList = $('#productList');
+	// 	var $personelInfo = $('#personelInfo');
+	// 	var $deliver = $('div.deliver', '#deliverInfo');
+	// 	var $atm = $('#atm');
+	// 	var $paySection = $('div[data-include="pay-modal"]');
+
+
+	// App.createTransaction = function(checkout) {
+	// 	var command = $.extend({operation: 'sendOrder'}, checkout);
+	// 	console.log(command);
+	// };
+
+	// App.alterTransaction = function(checkout) {
+	// 	var command = $.extend({operation: 'alterOrder'}, checkout);
+	// 	console.log(command);
+	// };
+
+	// App.transactionProcess = function() {
+
+	// };
+
+	// App.pay = function(result) {
+	// 	if (result.error !== undefined) {
+	// 		console.log(result.error);
+	// 		swal("Oops...", "發生錯誤", "error");
+				
+	// 		setTimeout(function() {
+	// 			window.location.reload(false);
+	// 		}, 2000);
+				
+	// 		return false;
+	// 	}
+
+	// 	swal("訂貨成功! 請去信箱查看");
+	// 	// app.clearProduct();
+	// 	setTimeout(function() {
+	// 		window.location.replace('/JiCoffee/view/order/view');
+	// 	}, 1000);
+	// };
+
+	// App.serverProductLoad = function(result) {
+	// 	if (result === 'error') {
+	// 		return App.error();
+	// 	}
+
+	// 	App.listProduct(result.product);
+	// 	$productList.find('td.input-group')
+	// 		.prepend('<span class="input-group-btn set"><a href="#" class="btn minus"><i class="fa fa-minus"></i></a></span>')
+	// 		.append('<span class="set"><a href="#" class="btn plus"><i class="fa fa-plus"></i></a></span>');
+	// };
+
+	// App.productMinus = function(e) {
+	// 	e.preventDefault();
+
+	// 	var index = $productList.find('a.minus').index(this);
+	// 	var $amount = $productList.find('span.amount').eq(index);
+	// 	var $price = $productList.find('span.price').eq(index);
+	// 	var $totalPrice = $productList.find('span.totalprice').eq(index);
+
+	// 	if ($amount.text() > 1) {
+	// 		$amount.text(parseInt($amount.text()) - 1);
+	// 		$totalPrice.text(parseInt($price.text()) * parseInt($amount.text()));
+	// 	}
+	// };
+
+	// App.productPlus = function(e) {
+	// 	e.preventDefault();
+
+	// 	var index = $productList.find('a.plus').index(this);
+	// 	var $amount = $productList.find('span.amount').eq(index);
+	// 	var $price = $productList.find('span.price').eq(index);
+	// 	var $totalPrice = $productList.find('span.totalprice').eq(index);
+
+	// 	if ($amount.text() < 20) {
+	// 		$amount.text(parseInt($amount.text()) + 1);
+	// 		$totalPrice.text(parseInt($price.text()) * parseInt($amount.text()));
+	// 	}
+	// };
+
+	// App.deliverRecord = function(result) {
+	// 	$deliver.find('input[value="'+ result.delivertype +'"]').trigger('click.changeDeliver');
+	// };
+
+	// App.payRecord = function(result) {
+	// 	$atm.find('input[name="account"]').val(result.bankaccount);
+	// };
+
+	// App.sessionProductLoad = function() {
+	// 	if (sessionStorage.getItem('product') !== null) {
+	// 		var products = JSON.parse(sessionStorage.getItem('product'));
+			
+	// 		App.listProduct(products);
+	// 		App.cart(products);
+	// 	}
+
+	// 	// swal('尚未訂購產品，無法結帳');
+	// 	// setTimeout(function() {
+	// 	// 	window.location.replace('/JiCoffee/view/product/?category=bean');
+	// 	// }, 2000);
+	// };
+
+	// App.listProduct = function(products) {
+	// 	$productList.trigger('list', [products]);
+	// };
+
+	// App.cart = function(products) {
+	// };
+
+	// App.memberRecord = function(result) {
+	// 	if (result.user === 'Member') {
+	// 		return $personelInfo.prepend(result.record)
+	// 			.data('username', result.username)
+	// 			.data('email', result.email)
+	// 			.data('phone', result.phone)
+	// 			.find('input.record').trigger('click.recordMember');
+	// 	}
+
+	// 	$('div.box-tools').append(result.box).on('click.login', 'button.login', function(e) {
+	// 		e.preventDefault();
+	// 		$('#user').trigger('click.initLogin');
+	// 	});
+	// };
+
+	// App.showPayModal = function(e) {
+	// 	e.preventDefault();
+		
+	// 	var $modal = $paySection.find('#pay-modal');
+	// 	var deliverType = $deliver.filter('.alert-info').find('span.frb-title').text();
+	// 	var atm = $('input', '#atm').eq(0).val();
+
+	// 	$personelInfo.serializeArray().map(function(item) {
+	// 		$modal.find('span.' + item.name).text(item.value);
+	// 	});
+
+	// 	$modal.find('span.deliver').text(deliverType).end()
+	// 		.find('span.bankAccount').text(atm).end()
+	// 		.find('div.list').html($productList.clone()).find('span.set').remove();
+	// };
+
+	// App.confirmPayModal = function(e) {
+	// 	e.preventDefault();
+
+	// 	$(this).find('img').removeClass('hide');
+	// 	var checkout = {productId: [], productAmount: [], productName: []};
+	// 	$personelInfo.serializeArray().map(function(item) {
+	// 		checkout[item.name] = item.value;
+	// 	});
+	// 	checkout['atmAccount'] = $('input', '#atm').eq(0).val();
+	// 	checkout['total'] = $productList.next().find('span.totalPrice').text();
+	// 	checkout['deliver'] = $deliver.filter('.alert-info').find('input[name="deliver-type"]').val();
+	// 	// checkout['pay'] = $('#payItem').find('li').filter('.active').index();
+
+	// 	$productList.find('span.amount').each(function(index) {
+	// 		checkout.productName.push($productList.find('tbody>tr').eq(index).find('td.productName').text());
+	// 		checkout.productId.push($(this).data('productid'));
+	// 		checkout.productAmount.push($(this).text());
+	// 	});
+
+	// 	amplify.publish('pay', checkout);
+	// };
+	
+		// $productList.on('click.minus', 'a.minus', App.productMinus)
+		// .on('click.plus', 'a.plus', App.productPlus);
+
+		// // deliver alert-info change
+		// $deliver.on('click.changeDeliver', 'input[name="deliver-type"]', function(e) {
+		// 	var index = $deliver.find('input[name="deliver-type"]').index(this);
+		// 	$deliver.removeClass('alert-info').addClass('alert-default')
+		// 		.eq(index).removeClass('alert-default').addClass('alert-info');
+		// });
+
+		// $personelInfo.on('keyup.onlyNumber', '#phone', function(e) {
+		// 	e.preventDefault();
+		// 	this.value = this.value.replace(/[^0-9]/g, '');
+		// }).on('click.recordMember', 'input.record', function() {
+		// 	var inputFillRecord = function() {
+		// 		var documentRecord = $personelInfo.data();
+		// 		$personelInfo
+		// 			.find('#username').val(documentRecord.username).end()
+		// 			.find('#email').val(documentRecord.email).end()
+		// 			.find('#phone').val(documentRecord.phone);
+		// 	};
+
+		// 	var inputClearRecord = function() {
+		// 		$personelInfo.find('#username, #email, #phone').val('');
+		// 	};
+
+		// 	clickStatus = !clickStatus;
+		// 	return clickStatus ? inputFillRecord.apply(this) : inputClearRecord.apply(this);
+		// }).on('submit.validate', function(e) {
+		// 	e.preventDefault();
+
+		// 	if (captcha.validateCaptcha()) {
+		// 		swal('儲存成功');
+		// 		return $(this).data('verify', true).tooltip('hide');
+		// 	}
+		// });
+
+		// $('#pay').on('click.pay', function(e) {
+		// 	e.preventDefault();
+
+		// 	// these verify need modify
+		// 	if (!$personelInfo.data('verify')) {
+		// 		$(this).add($personelInfo.find('#save')).tooltip('show');
+		// 		return false;
+		// 	}
+
+		// 	var $atmAccount = $('#atm').find('input[name="atmAccount"]');
+
+		// 	if ($atmAccount.eq(0).val().length !== 5) {
+		// 		$atmAccount.eq(0).parent().addClass('has-error').end().next().show('fast');
+		// 		$(this).tooltip('show');
+		// 		return false;
+		// 	}
+
+		// 	$(this).tooltip('hide');
+		// 	$paySection.find('#pay-modal').modal('show');
+		// });
+
+		// $paySection
+		// 	.on('shown.bs.modal', App.showPayModal)
+		// 	.on('click.checkout', 'button.checkout', App.confirmPayModal);
+	$(function() {
+		var resource = Url.getUrlParameter;
+		var captcha = new Captcha($('#captcha'));
+		var app = new App;
+		var transaction = new Transaction(
+			$('#personelInfo'), 
+			$('#productList'), 
+			$('div[data-include="pay-modal"]'), 
+			$('#deliverInfo'), 
+			$('#atm'), 
+			$('#submit'),
+			captcha);
+
+		$('button[rel=tooltip]').tooltip({trigger: 'focus'});
+
+		// $.getJSON('/JiCoffee/app/JiCoffee.json', function(coffee) {
+		// 	$('span.address').text(coffee.address);
+		// });
+
+		var mode = function() {
+			amplify.subscribe('transaction', transaction.deliverRecord.bind(transaction));
+
+			if (resource.action === 'alter' && resource.transactionid !== undefined) {
+				amplify.subscribe('pay', transaction.alterTransaction.bind(transaction));
+				amplify.subscribe('transaction', transaction.serverProductLoad.bind(transaction));
+				amplify.subscribe('transaction', transaction.memberRecord.bind(transaction));
+				amplify.subscribe('transaction', transaction.payRecord.bind(transaction));
+				return;
+			}
+
+			amplify.subscribe('pay', transaction.createTransaction.bind(transaction));
+			amplify.subscribe('transaction', transaction.sessionProductLoad.bind(transaction));
+			amplify.subscribe('transaction', transaction.memberRecord.bind(transaction));	
+		};
+			
+		var activate = function() {
+			amplify.request.define('tran', 'ajax', {url: '/JiCoffee/app/server.php',
+			type: 'POST',
+			dataType: 'text'});
+
+			$.when(
+				amplify.request('app', {operation: 'initialize'}),
+				amplify.request('app', $.extend({operation: 'initTransaction'}, resource))
+			).then(function(application, transaction) {
+				if (application[1] === 'success') {
+					amplify.publish('app', application[0]);
+				}
+
+				if (transaction[1] === 'success') {
+					setTimeout(function() {
+						amplify.publish('transaction', transaction[0]);
+					}, 200);
+				}
+			});
+		};
+
+		mode();
+		activate();
+	});
+
+	// var Init = (function() {		
+	// 	var mode = function() {
+	// 		var app = new App;
+	// 		var transaction = new tran
+
+	// 		if (resource.action === 'alter' && resource.transactionid !== undefined) {
+	// 			amplify.subscribe('pay', App.alterTransaction);
+	// 			amplify.subscribe('transaction', App.listProductFromServer);
+	// 			amplify.subscribe('transaction', App.memberRecord);
+	// 			amplify.subscribe('transaction', App.deliverRecord);
+	// 			amplify.subscribe('transaction', App.payRecord);
+	// 			return;
+	// 		}
+
+	// 		amplify.subscribe('pay', App.createTransaction);
+	// 		amplify.subscribe('transaction', App.sessionProductLoad);
+	// 		amplify.subscribe('transaction', App.memberRecord);	
+	// 	};
+		
+	// 	var activate = function() {
+	// 		// amplify.request.define('tran', 'ajax', {url: '/JiCoffee/app/server.php',
+	// 		// type: 'POST',
+	// 		// dataType: 'text'});
+
+	// 		$.when(
+	// 			amplify.request('app', {operation: 'initialize'}),
+	// 			amplify.request('app', $.extend({operation: 'initTransaction'}, resource))
+	// 		).then(function(application, transaction) {
+	// 			if (application[1] === 'success') {
+	// 				amplify.publish('app', application[0]);
+	// 			}
+
+	// 			if (transaction[1] === 'success') {
+	// 				setTimeout(function() {
+	// 					amplify.publish('transaction', transaction[0]);
+	// 				}, 200);
+	// 			}
+	// 		});
+	// 	};
+
+	// 	return function() {
+	// 		mode.apply(this);
+	// 		activate.apply(this);
+	// 	}
+	// }());
+	
+	
+}());
+	
+</script>
+</body>
+
+</html>

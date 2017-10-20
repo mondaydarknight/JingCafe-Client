@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>JICoffee</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<!--CSS Loading -->
+	<!-- <link rel="manifest" href="../../manifest.json"> -->
+	<link rel="stylesheet" href="/JiCoffee/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/JiCoffee/css/prettyPhoto.css">
+    <link rel="stylesheet" href="/JiCoffee/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/JiCoffee/css/box.css">
+    <link rel="stylesheet" href="/JiCoffee/css/style.css">
+    <link rel="stylesheet" href="/JiCoffee/css/sweetalert.css">
+    
+</head>
+<body>
+
+<header>
+    <nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-brand">
+					<a href="/JiCoffee/" class="brand">JING<p></p>Coffee</a>
+				</div>
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="navbar">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="navbar-collapse collapse" id="menu">
+					<div data-include="menu"></div>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="user"></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>		
+	</nav>
+</header>
+
+<section class="slider">
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1">
+					<div class="panel panel-info">
+					  <div class="panel-heading">訂單修改</div>
+					  	<div class="panel-body">
+					  	<form role="form">
+					  		<!-- need claim detail -->
+					  		
+					  		<div class="form-group col-sm-6">
+					  			<h3 class="text-center"><i class="fa fa-truck fa-1x"></i>配送方式</h3>
+					  			<hr>
+					  			<ul class="nav nav-tabs">
+                                	<li class="active"><a href="#home" data-toggle="tab">門市</a></li>
+                                	<li><a href="#profile" data-toggle="tab">7-11</a></li>
+                                	<li><a href="#messages" data-toggle="tab">郵局</a></li>
+                                </ul>
+
+                            	<div class="tab-content">
+                                	<div class="tab-pane fade in active" id="home">
+										<h4>注意事項:</h4>
+										<ul class="list-unstyled">
+			                                <li>本店領取商品(免運費)</li>
+			                                <li>門市地點為:<span class="address"></span></li>
+			                                <li>領貨時段依照營業時間</li>
+			                            </ul>   
+	                                </div>
+	                                <div class="tab-pane fade" id="profile">
+	                                    <h4>Profile Tab</h4>
+	                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	                                </div>
+	                                <div class="tab-pane fade" id="messages">
+	                                    <h4>Messages Tab</h4>
+	                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	                                </div>
+	                            </div>
+					  		</div>
+
+					  		<div class="form-group col-sm-6">
+					  			<h3 class="text-center"><i class="fa fa-credit-card fa-1x"></i>付款方式</h3>
+					  			<hr>
+					  			<ul class="nav nav-tabs">
+                                	<li class="active"><a href="#pay" data-toggle="tab">ATM轉帳</a></li>
+                                </ul>
+                            	<div class="tab-content">
+                                	<div class="tab-pane fade in active" id="pay">
+										<h4>注意事項:</h4>
+										<ul class="list-unstyled">
+											<li>當匯款完成後，將不進行訂單修改</li>
+			                                <li>訂單完成後於三天內進行匯款動作，逾時匯款視為取消訂單，系統將自行取消</li>
+			                            </ul>   
+	                                </div>
+	                            </div>
+					  		</div>
+ 					  		
+ 					  		<div class="form-group text-center">
+ 					  			<a href="/JiCoffee/" class="btn btn-default" id="cancelSubmit"><img src="/JiCoffee/images/loader.gif" style="display: none;">確定送出</a>
+					  		<a href="/JiCoffee/" class="btn btn-default">取消</a>	
+ 					  		</div>
+					  		
+					  	</form>
+					  	</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+					<div class="text-center">
+						<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+					</div>
+                    &copy; Coffee Shop
+                    <div class="credits">
+                        
+                    </div>
+                </div>
+				
+                <div class="top-bar">			
+					<div class="col-lg-12">
+					   <div class="social">
+							<ul class="social-share">
+								<li><a href="#">聯絡我們</a></li>
+								<li><a href="#">網站使用條例</a></li>
+								<li><a href="#">隱私權保護申明</a></li>
+								<!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
+							</ul>
+					   </div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </footer>
+
+	
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/JiCoffee/js/jquery.min.js"><\/script>')</script>
+<script src="/JiCoffee/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/JiCoffee/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/JiCoffee/js/jquery.prettyPhoto.js"></script>
+<script src="/JiCoffee/js/sweetalert.min.js"></script>
+
+<script src="/JiCoffee/js/application.js"></script>
+
+<script>
+
+(function() {
+	
+	// var ajax = new Ajax;
+	
+	// $(function() {
+		
+	// 	$('#cancelSubmit').on('click.cancelOrder', function(event) {
+	// 		event.preventDefault();
+
+	// 		var $cancelOption = $(this).prev().find('select.cancelOption');
+
+	// 		if ($cancelOption.get(0).selectedIndex < 1) {
+	// 			$cancelOption.parent().addClass('has-error').prev().css('text-align', 'center').show('fast');
+	// 			setTimeout(function() {
+	// 				$cancelOption.parent().removeClass('has-error');
+	// 			}, 1000);
+
+	// 			return;
+	// 		}
+
+	// 		var ajax2 = new Ajax({dataType: 'text'});
+	// 		var command = {data: {operation: 'cancelOrder', transactionId: resource.transactionid}};
+	// 		var respond = function(result) {
+	// 			var backLastPage = function() {
+	// 				setTimeout(function() {
+	// 					location.replace('/JiCoffee/view/order/view/');
+	// 				}, 1500);
+	// 			};
+
+	// 			console.log(result);
+	// 			if (result.error) {
+	// 				swal('發生錯誤');
+	// 				return backLastPage();
+	// 			}
+
+	// 			swal('取消成功');
+	// 			backLastPage();
+	// 		};
+	// 		var ajax2 = new Ajax;
+	// 		ajax2.request(command, respond);
+	// 	});
+	// });
+
+	// var app = new App(ajax);
+	// var resource = Url.getUrlParameter;
+	
+	// if (resource.transactionid === undefined) {
+	// 	return app.goErrorPage();
+	// }	
+
+	// var request = $.extend({operation: 'checkTransaction'}, resource);
+
+	// app.proxyInit({data: request});
+
+
+
+}());
+	
+</script>
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>JiCoffee</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
+	
+	<!--CSS Loading -->
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" href="/JiCoffee/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/JiCoffee/css/prettyPhoto.css">
+    <link rel="stylesheet" href="/JiCoffee/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/JiCoffee/css/sticky-footer.css">
+    <link rel="stylesheet" href="/JiCoffee/css/box.css">
+    <link rel="stylesheet" href="/JiCoffee/css/style.css">
+    <link rel="stylesheet" href="/JiCoffee/css/sweetalert.css">
+    
+</head>
+<body>
+
+<header>
+    <nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-brand">
+					<a href="/JiCoffee/" class="brand">JING<p></p>Coffee</a>
+				</div>
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="navbar">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				
+				<div class="navbar-collapse collapse" id="menu">
+					<div data-include="menu" class="nav-menu"></div>
+										
+					<div class="navigation">	
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#inform">最新通知</a></li>
+							<li><a href="#about">關於</a></li>
+							<li><a href="#location">門市</a></li>
+							<li><a href="#contact">聯絡我們</a></li>
+							<li id="user">
+								<a href="#" class="external" data-toggle="modal" data-target="#login-modal"><i class="fa fa-user fa-lg"></i></a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<!-- /.Navbar-collapse -->		 
+			</div>
+		</div>		
+	</nav>
+</header>   
+
+<section id="home">
+	<div class="slider">
+		<div id="about-slider">
+			<div id="carousel-slider" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators visible-xs">
+					<li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-slider" data-slide-to="1"></li>
+					<li data-target="#carousel-slider" data-slide-to="2"></li>
+					<li data-target="#carousel-slider" data-slide-to="3"></li>
+					<li data-target="#carousel-slider" data-slide-to="4"></li>
+				</ol>
+
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="/JiCoffee/images/slider/jing-slider1.jpg" class="img-responsive" alt=""> 
+					</div>
+				   <div class="item">
+						<img src="/JiCoffee/images/slider/jing-slider2.jpg" class="img-responsive" alt=""> 
+				   </div> 
+				   <div class="item">
+						<img src="/JiCoffee/images/slider/jing-slider3.jpg" class="img-responsive" alt=""> 
+					</div>
+					<div class="item">
+						<img src="/JiCoffee/images/slider/jing-slider4.jpg" class="img-responsive" alt="">
+					</div> 
+					<div class="item">
+						<img src="/JiCoffee/images/slider/jing-slider5.jpg" class="img-responsive" alt="">
+					</div>
+				</div>
+					
+				<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
+					<i class="fa fa-angle-left"></i> 
+				</a>
+					
+				<a class=" right carousel-control hidden-xs" href="#carousel-slider" data-slide="next">
+					<i class="fa fa-angle-right"></i> 
+				</a>
+			</div> <!--/#carousel-slider-->
+		</div><!--/#about-slider-->
+	</div>
+</section>
+   
+	<section id="inform" class="wrapper">
+		<div class="container">
+			<div class="center">
+				<div class="col-md-6 col-md-offset-3 text-center">					
+					<h2>NEWS</h2>
+					<h3>活動資訊</h3>
+					<hr>
+				</div>
+			</div>
+		</div>
+	
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 wow fadeInRight col-md-offset-1">
+					<div class="box box-warning">
+                        <div class="box-header">
+                            <i class="fa fa-bullhorn"></i>
+                            <h3 class="box-title">最新消息</h3>
+                        </div>
+                    
+                        <div class="box-body">
+                            <div class="callout callout-warning" style="font-size:14px;">
+                                <h4>2017-07-18</h4>
+                                <a href="#">慶祝COFFEE LOVER’s PLANET 品牌總監 楊衣姍 小姐，榮獲2017台灣虹吸式咖啡冠軍！</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5 wow fadeInDown">
+                    <div class="accordion">
+                        <div class="panel-group" id="accordionNews">
+                          
+                          	<div class="panel panel-default">
+                            	<div class="panel-heading">
+                              		<h3 class="panel-title">
+                              			<a class="accordion-toggle" data-toggle="collapse" data-parent="accordionNews" href="#collapseOne1"><span class="pull-right"><i class="fa fa-angle-right"></i></span>咖啡</a>
+                              		</h3>
+                            	</div>
+
+                            	<div id="collapseOne1" class="panel-collapse collapse">
+                              		<div class="panel-body">
+                                  		<div class="media accordion-inner">
+                                        	<div class="pull-left">
+                                            <!-- <img class="img-responsive" src="images/accordion1.png"> -->
+                                        	</div>
+                                        	<div class="media-body">
+                                            	<h4>活動</h4>
+                                            	<p>我們今天走出戶外囉🏃🏃
+                                            	快點跟著我們一起來品嚐夏天必喝的泡沫冰咖啡,空氣式咖啡機,製作出蘊含綿密氣泡的咖啡⋯⋯</p>
+                                        	</div>
+                                  		</div>
+                              		</div>
+                            	</div>
+                        	</div>
+                       	</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+	
+	<section id="about" class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="center">
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<h2>About</h2>
+						<h3>關於</h3>
+						<hr>				
+						<p class="lead">COFFEE SHOP</p>
+					</div>
+				</div>
+				
+				<div class="col-md-5 col-md-offset-1 wow fadeInUp">
+					<img src="/JiCoffee/images/home/coffee_2.jpg" class="img-responsive">
+				</div>
+				
+				<div class="col-md-6">
+					<h2>讓世界看見咖啡</h2>
+					<p>每一粒豆子，都以呵護嬰兒般的態度謹慎培育著。
+						受到陽光及雨露滋養的果實，一公克都不許浪費。
+						焙煎方式使這極致的濃醇香氣更加提升。
+						萃取出的風味深度更是凝聚著豐潤的深度感受。
+
+						咖啡，並不僅是單純的液體。而是帶著自然的恩惠，以及無數的熱情，
+						從赤道來到都市、從港口來到咖啡館、從農園來到家庭。
+
+						我們，想用咖啡的種種，為世界帶來驚喜。
+
+						橫跨數萬公里的旅程，來到您眼前的這杯咖啡，
+						一定擁有著讓您展開笑容的力量。
+
+						來自咖啡熱愛者的星球。</p>
+				</div>
+			</div>
+		</div>		
+	</section>
+
+	<section id="location" class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="center">
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<h2>門市</h2>
+						<hr>				
+					</div>
+				</div>
+				<div class="col-sm-10 col-sm-offset-1 col-xs-12">
+					<div class="col-md-6 col-xs-12">	
+						<div class="news-wrapper">
+							<div class="news-photo">
+								<img src="/JiCoffee/images/shop.jpg" class="img-responsive" alt="coffee shop" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<h3 class="text-bold">台北迪化街</h3>
+						<p>台北市敦化南路一段246號B1</p>
+						<p>TEL:02-2752-4157</p>
+						<p>營業時間：</p>
+						<p>週日至週四 08:00-21:30</p>
+						<p>週五、週六及例假日前一天 08:00-22:00</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="contact" class="contact">
+		<div class="contact-page">
+			<div class="container">
+				<div class="center text-center">
+					<h2>Contact Us</h2>
+					<h3>聯絡我們</h3>
+					<hr>				
+				</div> 
+				<div class="row contact-wrap"> 	
+				    <div class="col-md-8 col-md-offset-2">	
+                        <div id="sendmessage">Your message has been sent. Thank you!</div>
+                        <div id="errormessage"></div>
+                        <form action="" method="post" role="form" class="contactForm">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                <div class="validation"></div>
+                            </div>
+                            
+                            <div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Send Message</button></div>
+                        </form>			
+                    </div>	
+				</div><!--/.row-->
+			</div><!--/.container-->
+		</div><!--/#contact-page-->		
+	</section>
+	
+	<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+					<div class="text-center">
+						<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+					</div>
+                    &copy; Coffee Shop
+                    <div class="credits">
+                        <!-- 
+                            All the links in the footer should remain intact. 
+                            You can delete the links only if you purchased the pro version.
+                            Licensing information: https://bootstrapmade.com/license/
+                            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=OnePage
+                        -->
+                    </div>
+                </div>
+				
+                <div class="top-bar">			
+					<div class="col-lg-12">
+					   <div class="social">
+							<ul class="social-share">
+								<li><a href="#">聯絡我們</a></li>
+								<li><a href="#">網站使用條例</a></li>
+								<li><a href="#">隱私權保護申明</a></li>
+								<!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
+							</ul>
+					   </div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </footer>
+
+    <!-- <footer class="footer">
+    	<div class="container">
+    		<span class="text-muted lang">Supposed by Bootstrap</span>
+    	</div>
+    </footer> -->
+
+    <!-- <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                	<h4 class="modal-title">Setting</h4>
+                	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times</span></button>
+                </div>
+                <div class="modal-body">
+                    <div id="content"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="confirm">Confirm</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <section id="login"></section>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/JiCoffee/js/jquery.min.js"><\/script>')</script>
+<!-- <script src="../../js/popper.min.js"></script> -->
+<script src="/JiCoffee/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/JiCoffee/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/JiCoffee/js/jquery.prettyPhoto.js"></script>
+<script src="/JiCoffee/js/jquery.scrollTo.js"></script>
+<script src="/JiCoffee/js/jquery.nav.js"></script>
+<!-- <script src="/JiCoffee/js/manifest.js"></script> -->
+<!-- <script src="/JiCoffee/js/document.js"></script> -->
+<!-- <script src="/JiCoffee/js/application.js"></script> -->
+<script src="/JiCoffee/js/amplify.min.js"></script>
+<script src="/JiCoffee/js/amplify.request.deferred.js"></script>
+<script src="/JiCoffee/js/sweetalert.min.js"></script>
+<script src="/JiCoffee/js/login.js"></script>
+<script src="/JiCoffee/js/app.js"></script>
+
+<script>
+(function() {
+
+	var app = new App;
+	
+	amplify.request('app', {operation: 'initialize'}).done(function(result) {
+		amplify.publish('app', result);
+	});
+
+	$(function() {
+		$('.navigation').onePageNav();
+	});
+
+
+})()
+	
+// (function() {
+
+// 	var ajax = new Ajax;
+	
+// 	var app = new App(ajax);
+// 	app.init();
+	
+// }());
+	
+</script>
+</body>
+
+</html>
